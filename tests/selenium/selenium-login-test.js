@@ -7,6 +7,10 @@ async function automateLoginOnly() {
   
   const options = new chrome.Options();
   // Keep browser visible so you can see the automation
+    options.addArguments('--headless');
+  options.addArguments('--no-sandbox');
+  options.addArguments('--disable-dev-shm-usage');
+  options.addArguments('--user-data-dir=/tmp/chrome-user-data-signup');
   options.addArguments('--window-size=1280,720');
   
   const driver = await new Builder()
