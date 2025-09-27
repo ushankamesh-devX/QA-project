@@ -1,0 +1,6 @@
+projectKey=qa-app
+serverUrl=http://localhost:9000
+serverVersion=25.9.0.112764
+dashboardUrl=http://localhost:9000/dashboard?id=qa-app
+ceTaskId=e5b6b07b-616a-446b-929b-9d74112daab3
+ceTaskUrl=http://localhost:9000/api/ce/task?id=e5b6b07b-616a-446b-929b-9d74112daab3

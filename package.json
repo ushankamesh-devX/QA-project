@@ -1,0 +1,50 @@
+{
+  "name": "qa-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "server": "node server/index.js",
+    "dev:full": "concurrently \"npm run server\" \"npm run dev\"",
+    "test:selenium": "mocha tests/selenium/*.test.js --timeout 30000",
+    "test:selenium:signup": "mocha tests/selenium/signup.test.js --timeout 30000",
+    "test:selenium:login": "mocha tests/selenium/selenium-login-test.js --timeout 30000",
+    "test:selenium:integration": "mocha tests/selenium/integration.test.js --timeout 45000",
+    "test:selenium:all": "npm run test:selenium",
+    "test:setup": "echo 'Make sure your app is running on http://localhost:5174 before running tests'"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "helmet": "^8.1.0",
+    "jira-client": "^8.2.2",
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.1.10",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^7.9.1",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.3",
+    "chai": "^6.0.1",
+    "chromedriver": "^140.0.3",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.36.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.4.0",
+    "mocha": "^11.7.2",
+    "selenium-webdriver": "^4.35.0",
+    "vite": "^7.1.7"
+  }
+}

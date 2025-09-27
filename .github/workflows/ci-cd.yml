@@ -1,0 +1,65 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install Dependencies
+      run: |
+        npm ci
+        npm install -g selenium-webdriver
+        npm install -g chromedriver
+
+    - name: Lint
+      run: npm run lint || echo "No lint script found"
+
+    - name: Build
+      run: npm run build
+
+    - name: Start Backend Server
+      run: |
+        cd server
+        npm install
+        node index.js &
+        sleep 5
+      env:
+        JWT_SECRET: ${{ secrets.JWT_SECRET }}
+        PORT: 3001
+
+    - name: Run Unit Tests
+      run: npm test || echo "No test script found"
+
+    - name: Run Selenium Tests
+      run: |
+        cd tests/selenium
+        node selenium-login-test.js
+        node selenium-signup-test.js
+
+    - name: Upload Test Results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-results
+        path: tests/screenshots/
+
+    - name: SonarQube Analysis
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      run: |
+        npm install -g sonarqube-scanner
+        sonar-scanner
