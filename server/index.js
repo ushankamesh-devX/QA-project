@@ -122,7 +122,7 @@ app.post('/api/signup', async (req, res) => {
   }
 });
 
-app.post('/api/login', loginLimiter, (req, res) => {
+app.post('/api/login', (req, res) => {
   try {
     const { email, password } = req.body;
 

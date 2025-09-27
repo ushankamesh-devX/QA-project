@@ -2,9 +2,9 @@ import JiraApi from 'jira-client';
 
 const jira = new JiraApi({
   protocol: 'https',
-  host: 'kpathum616.atlassian.net',
-  username: 'kushandisnaka44@gmail.com',
-  password: 'ATATT3xFfGF06SMi6JXN-5uN11QOKi7IPBOkTmF_-HQQeISx5vtwotgkDUpYfNl98kGHmThZmltqqMvd9sJf3xMvghCKh7kgXGJmKg-d0io_eK7ZAnC-HuXb3ZUk2r1sFnhZj3SdoqHGcWVHMl9vZAaz0i_iIiSF354Pide1lb808mC4-AfoRgo=BCFB4F7F',
+  host: 'devx.atlassian.net',  // Replace with your Jira instance
+  username: 'ushankamesh33@gmail.com',    // Replace with your Jira email
+  password: 'ATATT3xFfGF0HKiUWRLZz09efEaqyZqcZgHOkg9IUr8P2cGL6dkaZPCxxfo42brQ0TXCYWB74Cw3y6tACN9-pVwJwsKVkmAMX13WuyTlmccRT_N832EW8LueyVFBGEGoCRXQA3buXfr2FPHNZu4d0_ZjCe831vPx_LHpKvFiDy92sloe3qyowtc=706F1FF8',  
   apiVersion: '2',
   strictSSL: true
 });

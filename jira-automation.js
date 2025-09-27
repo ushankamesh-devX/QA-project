@@ -1,15 +1,14 @@
-how import JiraApi from 'jira-client';
+import JiraApi from 'jira-client';
 
 // Jira configuration
 const jira = new JiraApi({
   protocol: 'https',
-  host: 'kpathum616.atlassian.net',
-  username: 'kushandisnaka44@gmail.com',
-  password: 'ATATT3xFfGF06SMi6JXN-5uN11QOKi7IPBOkTmF_-HQQeISx5vtwotgkDUpYfNl98kGHmThZmltqqMvd9sJf3xMvghCKh7kgXGJmKg-d0io_eK7ZAnC-HuXb3ZUk2r1sFnhZj3SdoqHGcWVHMl9vZAaz0i_iIiSF354Pide1lb808mC4-AfoRgo=BCFB4F7F',
+  host: 'devx.atlassian.net',  // Replace with your Jira instance
+  username: 'ushankamesh33@gmail.com',    // Replace with your Jira email
+  password: 'ATATT3xFfGF0HKiUWRLZz09efEaqyZqcZgHOkg9IUr8P2cGL6dkaZPCxxfo42brQ0TXCYWB74Cw3y6tACN9-pVwJwsKVkmAMX13WuyTlmccRT_N832EW8LueyVFBGEGoCRXQA3buXfr2FPHNZu4d0_ZjCe831vPx_LHpKvFiDy92sloe3qyowtc=706F1FF8',            // Replace with your API token
   apiVersion: '2',
   strictSSL: true
 });
-
 // Bug descriptions
 const sqlInjectionDescription = `h2. Issue Overview
 The login and signup endpoints are vulnerable to SQL injection attacks due to direct parameter usage in SQL queries.
@@ -107,20 +106,20 @@ h3. Prevention Strategies
 // Issue definitions
 const sqlInjectionBug = {
   fields: {
-    project: { key: 'QP' },  // Your QA project key
+    project: { key: 'QP' },
     summary: 'SQL Injection Vulnerability in Authentication System',
     description: sqlInjectionDescription,
-    issuetype: { name: 'Bug' },
+    issuetype: { name: 'Task' },  // Try 'Task'
     labels: ['security', 'authentication', 'critical-bug']
   }
 };
 
 const passwordResetBug = {
   fields: {
-    project: { key: 'QP' },  // Your QA project key
+    project: { key: 'QP' },
     summary: 'Missing Password Reset Functionality',
     description: passwordResetDescription,
-    issuetype: { name: 'Bug' },
+    issuetype: { name: 'Task' },  // Try 'Task'
     labels: ['feature-request', 'user-experience']
   }
 };
